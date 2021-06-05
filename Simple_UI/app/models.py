@@ -1,18 +1,25 @@
 from django.db import models
 
-# Create your models here.
+
 class Users(models.Model):
-    CHOICES = (
-        ('EPS', 'EPS'),
-        ('IPS', 'IPS'),
-        ('ARL', 'ARL'),
+	"""Modelo de la tabla de usuarios.
+	contiene campos de datos personales de la
+	persona registrada.
+
+	Args:
+		models ([model]): [modela la tabla db]
+	"""
+
+	CHOICES = ( ('EPS', 'EPS'),
+            ('IPS', 'IPS'),
+            ('ARL', 'ARL'),
     )
-	idUser = models.IntegerField(primary_key=True)
+	idUser = models.AutoField(primary_key=True)
 	Nombre = models.CharField(max_length=45)
 	Apellido = models.CharField(max_length=45)
-	Email = models.EmailField(max_length=60, unique=true)
-	Cedula = models.IntegerField
-	Imagen_de_Perfil = models.ImageField(use_url='User Pic')
+	Email = models.EmailField(max_length=60, unique=True)
+	Cedula = models.IntegerField()
+	Imagen_de_Perfil = models.ImageField()
 	Pais = models.CharField(max_length=45)
 	Entidad = models.CharField(max_length=45, choices=CHOICES)
-	Contraseña = models.CharField(max_length=16, min_length=4, allow_blank=False)
+	Contraseña = models.CharField(max_length=16)
