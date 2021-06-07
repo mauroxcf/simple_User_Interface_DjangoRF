@@ -19,7 +19,7 @@ class Users(models.Model):
 	Apellido = models.CharField(max_length=45)
 	Email = models.EmailField(max_length=60, unique=True)
 	Cedula = models.IntegerField()
-	Imagen_de_Perfil = models.ImageField()
+	Imagen_de_Perfil = models.FileField(upload_to='imagenes/', null=True, blank=True)
 	Pais = models.CharField(max_length=45)
 	Entidad = models.CharField(max_length=45, choices=CHOICES)
 	Contraseña = models.CharField(max_length=16)

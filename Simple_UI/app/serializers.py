@@ -16,4 +16,4 @@ class UserListSerializer(serializers.ModelSerializer):
 class UserUpdateSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Users
-		exclude = ('Email', 'Cedula')
+		exclude = ('Email', 'Cedula',)
