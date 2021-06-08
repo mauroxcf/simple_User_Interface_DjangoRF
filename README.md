@@ -55,6 +55,7 @@ Se puede hacer pruebas correspondientes con POSTMAN o SWAGGER agregando usuarios
 
 ### Estructura del proyecto
 ![image](https://user-images.githubusercontent.com/66022141/121137478-4946e100-c7fc-11eb-9130-ff0098450aec.png)
+
 La estructura del proyecto consta de tres modulos principales que son app, authentication, Simple_UI.
 - app:Es el modulo principal que entrega las respuestas en formato JSON a cada verbo HTTP que se le realiza al servidor dependiendo del endpoint en donde se le solicite, los archivos principales son serializaers.py, views.py, urls.py.
 - authentication:Se encarga del manejo de permisos de usuario, para manejo de usuario con facultad de administrador, login y registro segun los campos requeridos establecidos para ello. Sus archivos principales son views.py, models.py, serializers.py
