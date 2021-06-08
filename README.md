@@ -50,7 +50,8 @@ la app consta de una serie de endpoints para poder manipular la base de datos, o
 | GET | /api/v1/users/[id] | retorna un usuario en especifico por ID. |
 | PUT | /api/v1/users/[id] | Actualiza los datos de un usuario ya registrado. |
 ​
-Se puede hacer pruebas correspondientes con POSTMAN o SWAGGER agregando usuarios con los campos requeridos, hacer consultas sencillas, etc.
+
+- Se puede hacer pruebas correspondientes con POSTMAN o SWAGGER agregando usuarios con los campos requeridos, hacer consultas sencillas, etc.
 ![image](https://user-images.githubusercontent.com/66022141/121136872-bc9c2300-c7fb-11eb-80f2-94c5bf07c027.png)
 
 ### Estructura del proyecto
