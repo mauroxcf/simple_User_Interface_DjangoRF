@@ -9,6 +9,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class UserManager(BaseUserManager):
+    """ Clase encargada de administrar el usuario base, los permisos, etc """
 
     def create_user(self, nombre, apellido, email, cedula,imagen_de_Perfil,pais,entidad, password=None):
         if nombre is None:
@@ -33,6 +34,9 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    """ Clase encargada de sobremontar la clase user que maneja django
+        Esta contiene los campos relacionados al usuario registrado
+    """
     CHOICES = [
         ('EPS', 'EPS'),
         ('IPS', 'IPS'),
@@ -54,6 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     updated_at = models.DateTimeField(auto_now=True)
 
 
+    # sobremonto los campos requeridos para logearse
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['nombre','apellido','cedula', 'imagen_de_Perfil','pais', 'entidad']
 

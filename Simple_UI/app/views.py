@@ -16,6 +16,12 @@ class UsersFilter(filters.FilterSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
+	"""Esta clase de encarga de generar todas las consultas
+		para todos los verbos HTTP realizada por el usuario
+
+	Returns:
+			JSON con la respuesta a la consulta
+	"""
 	permission_classes = (permissions.IsAuthenticated,)
 	queryset = User.objects.all()
 	serializer_class = UserListSerializer
@@ -27,12 +33,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 	def retrieve(self, request, pk=None):
+			""" Retorna el ID del usuario que se consulta """
 			queryset = User.objects.all()
 			user = get_object_or_404(queryset, pk=pk)
 			serializer = UserListSerializer(user)
 			return Response(serializer.data)
 
 	def update(self, request, pk=None):
+			""" Retorna el usuario que se le actualizaron los datos """
 			queryset = User.objects.all()
 			user = get_object_or_404(queryset, pk=pk)
 			serializer = UserUpdateSerializer(user, data=request.data)

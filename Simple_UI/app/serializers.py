@@ -3,6 +3,9 @@ from rest_framework import serializers
 
 
 class UserListSerializer(serializers.ModelSerializer):
+	"""
+		Esta clase combierte el objeto usuario listado en un JSON
+	"""
 	class Meta:
 		model = User
 		# fields = '__all__'
@@ -11,6 +14,9 @@ class UserListSerializer(serializers.ModelSerializer):
 		# exclude = ('contraseña',)
 
 class UserUpdateSerializer(serializers.ModelSerializer):
+	"""
+		Esta clase combierte el objeto usuario listado para uso del metodo PUT en un JSON
+	"""
 	password = serializers.CharField( max_length=68, min_length=6, write_only=True)
 
 	class Meta:

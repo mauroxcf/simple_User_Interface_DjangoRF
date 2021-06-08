@@ -1,31 +1,13 @@
-from django.shortcuts import render
 from rest_framework import generics, status, permissions
 from .serializers import RegisterSerializer, LoginSerializer, LogoutSerializer
 from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
-from django.contrib.sites.shortcuts import get_current_site
-from django.urls import reverse
-import jwt
-from django.conf import settings
-from .renderers import UserRenderer
-
-from django.contrib.sites.shortcuts import get_current_site
-from django.urls import reverse
-
-from django.http import HttpResponsePermanentRedirect
-import os
-
-
-class CustomRedirect(HttpResponsePermanentRedirect):
-
-    allowed_schemes = [os.environ.get('APP_SCHEME'), 'http', 'https']
 
 
 class RegisterView(generics.GenericAPIView):
+    """ combierte el objeto que recibe por consulta a JSON para registro de usuario"""
 
     serializer_class = RegisterSerializer
-    renderer_classes = (UserRenderer,)
 
     def post(self, request):
         user = request.data
@@ -41,6 +23,7 @@ class RegisterView(generics.GenericAPIView):
 
 
 class LoginAPIView(generics.GenericAPIView):
+    """ combierte el objeto que recibe por consulta a JSON para login de usuario"""
     serializer_class = LoginSerializer
 
     def post(self, request):

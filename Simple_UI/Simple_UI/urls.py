@@ -1,3 +1,4 @@
+""" Este modulo se encarga de administrar los endpoints del proyecto y el SWAGGER"""
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import permissions
@@ -18,6 +19,7 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+# este patron de urls maneja todos endpoints del proyecto
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
