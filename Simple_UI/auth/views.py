@@ -1,10 +1,10 @@
-from django.contrib.auth.models import User
+from app.models import Users
 from .serializers import RegisterSerializer
 from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 class RegisterView(generics.CreateAPIView):
-    queryset = User.objects.all()
+    queryset = Users.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = RegisterSerializer
